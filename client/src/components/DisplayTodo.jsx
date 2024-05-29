@@ -5,7 +5,7 @@ function DisplayTodo() {
   const [todos, setTodos] = useState([]);
 
   const getTodos = async () => {
-    const res = await fetch("http://localhost:5000/todos");
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/todos`);
     const data = await res.json();
     const sortedData = data.sort((a, b) => a.todo_id - b.todo_id);
     setTodos(sortedData);

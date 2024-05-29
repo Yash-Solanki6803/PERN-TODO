@@ -6,7 +6,7 @@ function DeleteButton({ todo }) {
 
   const onHandleSubmit = async () => {
     try {
-      await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/todos/${todo.todo_id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

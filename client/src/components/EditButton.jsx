@@ -7,7 +7,7 @@ function EditButton({ todo }) {
 
   const onHandleSubmit = async () => {
     try {
-      await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}/${todo.todo_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
