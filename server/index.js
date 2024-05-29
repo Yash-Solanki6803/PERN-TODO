@@ -3,12 +3,18 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db.js");
 
+module.require("dotenv").config();
+
 //middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
+
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
 
 //create a todo
 
@@ -76,6 +82,6 @@ app.delete("/todos/:id", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
   console.log("server is running on port 5000");
 });
