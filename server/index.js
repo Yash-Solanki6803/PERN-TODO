@@ -19,8 +19,7 @@ app.post("/todos", async (req, res) => {
       "INSERT INTO todo (description) VALUES($1) RETURNING *",
       [description]
     );
-    console.log("data added successfully: ", description);
-    res.json(newTodo.rows[0]);
+    res.status(200).json(newTodo.rows[0]);
   } catch (error) {
     console.log(error.message);
   }
