@@ -4,6 +4,7 @@ function InputTodo() {
   const [description, setDescription] = useState("");
   const onSubmitForm = async (e) => {
     e.preventDefault();
+    if (description === "") return alert("Please enter a todo");
     try {
       const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/todos`, {
         method: "POST",
